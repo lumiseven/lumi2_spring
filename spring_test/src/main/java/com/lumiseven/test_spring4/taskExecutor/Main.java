@@ -4,6 +4,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 public class Main {
 
+	/*
+	 * Spring asynchronized method support
+	 */
 	public static void main(String[] args){
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(TaskExecutorConfig.class);
 		

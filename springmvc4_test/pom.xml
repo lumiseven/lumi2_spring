@@ -26,6 +26,14 @@
   	<slf4j.version>1.7.5</slf4j.version>
   </properties>
   <dependencies>
+  	<!-- springmvc test -->
+  	<dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+      <version>${spring-framework.version}</version>
+      <scope>test</scope>
+    </dependency>
+    
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>

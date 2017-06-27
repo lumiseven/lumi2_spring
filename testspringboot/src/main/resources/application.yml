@@ -1,0 +1,8 @@
+server:
+  port: 9096
+  context-path: /firstSpringBootProjectTesting 
+  
+logging:
+  file: /home/seven/Record/log/logback/testspringbootlog.log
+  level:
+    org.springframework.web: DEBUG

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<meta charset="UTF-8"/>
+	<head>
+		<title>home</title>
+		<script th:src="@{jquery.min.js}" type="text/javascript"></script>
+		<script th:src="@{stomp.min.js}" type="text/javascript"></script>
+		<script th:src="@{sockjs.min.js}" type="text/javascript"></script>
+	</head>
+	<body>
+		<form id="socketForm">
+			<textarea rows="7" cols="77" name="text"></textarea>
+			<input type="submit"/>
+		</form>
+		<script th:inline="javascript">
+			
+			var socket = new SockJS("/endpoint_test_chat");
+			var stompClient = Stomp.over(socket);
+			stompClient.connect('guest', 'guest', function(frame){
+				stompClient.subscribe("/user/queue/notifications", handleNotification);
+			});
+			
+			$("#socketForm").submit(function(e){
+				e.preventDefault();
+				var text = $("#socketForm").find("textarea[name='text']").val();
+				sendStompMessage(text);
+			});
+			
+			function handleNotification(message){
+				$("#output").append("<b>Received: " + message.body + "</b><br/>");
+			}
+			
+			function sendStompMessage(message){
+				stompClient.send("/chat", {}, message)
+			}
+			
+			$("#stop").click(function(){
+				sockClient.close()
+			});
+		</script>
+		<div id="output"></div>
+	</body>
+</html>

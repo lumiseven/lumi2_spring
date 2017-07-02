@@ -1,0 +1,7 @@
+insert into person(id,name,age,address) values
+(LAST_INSERT_ID(),'name01',111,'address01'),
+(LAST_INSERT_ID(),'name02',122,'address02'),
+(LAST_INSERT_ID(),'name03',133,'address03'),
+(LAST_INSERT_ID(),'name04',144,'address04'),
+(LAST_INSERT_ID(),'name05',155,'address05'),
+(LAST_INSERT_ID(),'name06',166,'address06');

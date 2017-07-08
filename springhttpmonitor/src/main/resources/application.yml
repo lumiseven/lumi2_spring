@@ -1,0 +1,8 @@
+management:
+#  context-path: /manage
+  port: 8081
+  security:
+    enabled: false
+endpoints:
+  shutdown:
+    enabled: true
